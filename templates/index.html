@@ -1,0 +1,294 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div>
+        <h1 class="h1">Co2 Emission Forecasting </h1>
+        <br>
+        <hr>
+        <p class="p">Please fill the form to predict Co2 Emission</p>
+        <br>
+        <hr>
+    </div>
+    <div>
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <div class="form-row">
+        <div class="form-group  col-md-3">
+          <label for="exampleFormControlSelect1">OrganizationalUnitTypeDescription</label>
+          <select class="form-control" id="exampleFormControlSelect1" name="OrganizationalUnitTypeDescription">
+            <option value="0" {% if row[0] == 0 %} selected {% endif %}>Delegación</option>
+            <option value="1" {% if row[0] == 1 %} selected {% endif %}>Espacio oficina</option>
+            <option value="2" {% if row[0] == 2 %} selected {% endif %}>Oficina</option>
+            <option value="3" {% if row[0] == 3 %} selected {% endif %}>Holding </option>
+            <option value="4" {% if row[0] == 4 %} selected {% endif %}>Bodega </option>
+            <option value="5" {% if row[0] == 5 %} selected {% endif %}>Viñedo </option>
+            <option value="6" {% if row[0] == 6 %} selected {% endif %}>Espacio terminal </option>
+            <option value="7" {% if row[0] == 7 %} selected {% endif %}>Fábrica</option> 
+            <option value="8" {% if row[0] == 8 %} selected {% endif %}>Edificio</option> 
+            <option value="9" {% if row[0] == 9 %} selected {% endif %}>Planta industrial</option>
+            <option value="10" {% if row[0] == 10 %} selected {% endif %}>Proyecto</option>
+            <option value="11" {% if row[0] == 11 %} selected {% endif %}>Hotel</option>
+            <option value="12" {% if row[0] == 12 %} selected {% endif %}>Centro I+D </option>
+            <option value="13" {% if row[0] == 13 %} selected {% endif %}>Sociedad</option>
+            <option value="14" {% if row[0] == 14 %} selected {% endif %}>Centro de producción</option>
+            <option value="15" {% if row[0] == 15 %} selected {% endif %}>Laboratorio</option>
+            <option value="16" {% if row[0] == 16 %} selected {% endif %}>Espacio almacén </option>
+            <option value="17" {% if row[0] == 17 %} selected {% endif %}>Campus</option>
+            <option value="18" {% if row[0] == 18 %} selected {% endif %}>Punto de venta</option>
+            <option value="19" {% if row[0] == 19 %} selected {% endif %}>Parque eólico</option>
+            <option value="20" {% if row[0] == 20 %} selected {% endif %}>Producción</option> 
+            <option value="21" {% if row[0] == 21 %} selected {% endif %}>Almacén</option> 
+            <option value="22" {% if row[0] == 22 %} selected {% endif %}>Evento</option> 
+            <option value="23" {% if row[0] == 23 %} selected {% endif %}>Obra</option> 
+            <option value="24" {% if row[0] == 24 %} selected {% endif %}> Linea de negocio</option> 
+            <option value="25" {% if row[0] == 25 %} selected {% endif %}>País</option> 
+            <option value="26" {% if row[0] == 26 %} selected {% endif %}>Terminal</option> 
+            <option value="27" {% if row[0] == 27 %} selected {% endif %}>Plató</option> 
+            <option value="28" {% if row[0] == 28 %} selected {% endif %}>Empleado</option> 
+          </select>
+        </div>
+        <div class="form-group  col-md-3">
+            <label for="exampleFormControlSelect1">SourceDescription</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="SourceDescription">
+              <option value="0" {% if row[1] == 0 %} selected {% endif %}>Consumo eléctrico oficinas</option>
+              <option value="1" {% if row[1] == 1 %} selected {% endif %}>Consumo eléctrico</option>
+              <option value="2" {% if row[1] == 2 %} selected {% endif %}>Consumo gasóleo A</option>
+              <option value="3" {% if row[1] == 3 %} selected {% endif %}>Suministro eléctrico</option>
+              <option value="4" {% if row[1] == 4 %} selected {% endif %}>Consumo agua</option>
+              <option value="5" {% if row[1] == 5 %} selected {% endif %}>Consumo gasolina</option>
+              <option value="6" {% if row[1] == 6 %} selected {% endif %}>Consumo diésel (B7)</option>
+              <option value="7" {% if row[1] == 7 %} selected {% endif %}>Consumo gasóleo B</option>
+              <option value="8" {% if row[1] == 8 %} selected {% endif %}>Consumo gas natural</option>
+              <option value="9" {% if row[1] == 9 %} selected {% endif %}>0007078836114125858 Gasoleo</option>
+            </select>
+          </div>
+          <div class="form-group  col-md-3">
+            <label for="exampleFormControlSelect1">PeriodDescription</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="PeriodDescription">
+              <option value='25' {% if row[2] == 25 %} selected {% endif %}>Año 2022</option>
+              <option value='26' {% if row[2] == 26 %} selected {% endif %}>Año 2023</option>
+              <option value='27' {% if row[2] == 27 %} selected {% endif %}>Año 2024</option>
+            </select>
+          </div>
+          <div class="form-group  col-md-3">
+            <label for="exampleFormControlSelect1">AspectGroupDescription</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="AspectGroupDescription">
+              <option value="0" {% if row[3] == 0 %} selected {% endif %}>Combustible</option>
+              <option value="1" {% if row[3] == 1 %} selected {% endif %}>Electricidad</option>
+              <option value="2" {% if row[3] == 2 %} selected {% endif %}>Indicadores</option>
+              <option value="3" {% if row[3] == 3 %} selected {% endif %}>Residuos</option>
+              <option value="4" {% if row[3] == 4 %} selected {% endif %}>Materias primas</option>
+              <option value="5" {% if row[3] == 5 %} selected {% endif %}>Viajes</option>
+              <option value="6" {% if row[3] == 6 %} selected {% endif %}>Agua</option>
+              <option value="7" {% if row[3] == 7 %} selected {% endif %}>Emisiones</option>
+              <option value="8" {% if row[3] == 8 %} selected {% endif %}>Emisiones bienes y servicios</option>
+              <option value="9" {% if row[3] == 9 %} selected {% endif %}>1</option>
+              <option value="10" {% if row[3] == 10 %} selected {% endif %}>2</option>
+            </select>
+          </div>
+          <div class="form-group  col-md-3">
+            <label for="exampleFormControlSelect1">FactorDescription</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="FactorDescription">
+              <option value="0" {% if row[4] == 0 %} selected {% endif %}>Emisiones</option>
+              <option value="1" {% if row[4] == 1 %} selected {% endif %}>Energía</option>
+              <option value="2" {% if row[4] == 2 %} selected {% endif %}>Residuos</option>
+              <option value="3" {% if row[4] == 3 %} selected {% endif %}>Materias Primas</option>
+              <option value="4" {% if row[4] == 4 %} selected {% endif %}>Indicadores</option>
+              <option value="5" {% if row[4] == 5 %} selected {% endif %}>Agua y Efluentes</option>
+              <option value="6" {% if row[4] == 6 %} selected {% endif %}>Viajes</option>
+              <option value="7" {% if row[4] == 7 %} selected {% endif %}>Emisiones evitadas</option>
+              <option value="8" {% if row[4] == 8 %} selected {% endif %}>10</option>
+              <option value="9" {% if row[4] == 9 %} selected {% endif %}>9</option>
+            </select>
+          </div>
+          <div class="form-group  col-md-3">
+            <label for="exampleFormControlSelect1">AspectDescription</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="AspectDescription">
+              <option value="0" {% if row[5] == 0 %} selected {% endif %}>Consumo gasóleo A</option>
+              <option value="1" {% if row[5] == 1 %} selected {% endif %}>Consumo gasolina</option>
+              <option value="2" {% if row[5] == 2 %} selected {% endif %}>Consumo eléctrico</option>
+              <option value="3" {% if row[5] == 3 %} selected {% endif %}>Consumo GLP</option>
+              <option value="4" {% if row[5] == 4 %} selected {% endif %}>Consumo gasóleo A (A3)</option>
+              <option value="5" {% if row[5] == 5 %} selected {% endif %}>Consumo gasolina (A3)</option>
+              <option value="6" {% if row[5] == 6 %} selected {% endif %}>Viajes de negocio</option>
+              <option value="7" {% if row[5] == 7 %} selected {% endif %}>Consumo agua</option>
+              <option value="8" {% if row[5] == 8 %} selected {% endif %}>Consumo gasóleo B</option>
+              <option value="9" {% if row[5] == 9 %} selected {% endif %}>Consumo material de envasado</option>
+            </select>
+          </div>
+          <div class="form-group  col-md-3">
+            <label for="exampleFormControlSelect1">UnitDescription</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="UnitDescription">
+              <option value="0" {% if row[6] == 0 %} selected {% endif %}>t</option>
+              <option value="1" {% if row[6] == 1 %} selected {% endif %}>l</option>
+              <option value="2" {% if row[6] == 2 %} selected {% endif %}>KWh</option>
+              <option value="3" {% if row[6] == 3 %} selected {% endif %}>kg</option>
+              <option value="4" {% if row[6] == 4 %} selected {% endif %}>km</option>
+              <option value="5" {% if row[6] == 5 %} selected {% endif %}>Ud</option>
+              <option value="6" {% if row[6] == 6 %} selected {% endif %}>Informe</option>
+              <option value="7" {% if row[6] == 7 %} selected {% endif %}>Copias</option>
+              <option value="8" {% if row[6] == 8 %} selected {% endif %}>MWh</option>
+              <option value="9" {% if row[6] == 9 %} selected {% endif %}>Horas</option>
+              <option value="10" {% if row[6] == 10 %} selected {% endif %}>ha</option>
+              <option value="11" {% if row[6] == 11 %} selected {% endif %}>pue</option>
+              <option value="12" {% if row[6] == 12 %} selected {% endif %}>m2</option>
+              <option value="13" {% if row[6] == 13 %} selected {% endif %}>Noche</option>
+              <option value="14" {% if row[6] == 14 %} selected {% endif %}>E</option>
+              <option value="15" {% if row[6] == 15 %} selected {% endif %}>Paquete A4</option>
+              <option value="16" {% if row[6] == 16 %} selected {% endif %}>gal</option>
+              <option value="17" {% if row[6] == 17 %} selected {% endif %}>th</option>
+              <option value="18" {% if row[6] == 18 %} selected {% endif %}>Folio</option>
+              <option value="19" {% if row[6] == 19 %} selected {% endif %}>Paq.folios</option>
+              <option value="20" {% if row[6] == 20 %} selected {% endif %}>ptos</option>
+            </select>
+          </div>
+          <div class="form-group  col-md-3">
+            <label for="exampleFormControlSelect1">GEIDescription</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="GEIDescription">
+              <option value="0" {% if row[7] == 0 %} selected {% endif %}>CO2eq</option>
+              <option value="1" {% if row[7] == 1 %} selected {% endif %}>C02</option>
+              <option value="2" {% if row[7] == 2 %} selected {% endif %}>CH4</option>
+              <option value="3" {% if row[7] == 3 %} selected {% endif %}>N2O</option>
+              <option value="4" {% if row[7] == 4 %} selected {% endif %}>R-410A</option>
+              <option value="5" {% if row[7] == 5 %} selected {% endif %}>R-407C</option>
+              <option value="6" {% if row[7] == 6 %} selected {% endif %}>HFC-134a</option>
+              <option value="7" {% if row[7] == 7 %} selected {% endif %}>R-449A</option>
+              <option value="8" {% if row[7] == 8 %} selected {% endif %}>R-407F</option>
+              <option value="9" {% if row[7] == 9 %} selected {% endif %}>FALSE</option>
+              <option value="10" {% if row[7] == 10 %} selected {% endif %}>R-404A</option>
+              <option value="11" {% if row[7] == 11 %} selected {% endif %}>R-407H</option>
+              <option value="12" {% if row[7] == 12 %} selected {% endif %}>R-422D</option>
+              <option value="13" {% if row[7] == 13 %} selected {% endif %}>R-448A</option>
+              <option value="14" {% if row[7] == 14 %} selected {% endif %}>R-424A</option>
+              <option value="15" {% if row[7] == 15 %} selected {% endif %}>R-453A</option>
+              <option value="16" {% if row[7] == 16 %} selected {% endif %}>R-438A</option>
+              <option value="17" {% if row[7] == 17 %} selected {% endif %}>R-22</option>
+              <option value="18" {% if row[7] == 18 %} selected {% endif %}>R-407A</option>
+              <option value="19" {% if row[7] == 19 %} selected {% endif %}>R-422A</option>
+              <option value="20" {% if row[7] == 20 %} selected {% endif %}>R-426A</option>
+            </select>
+          </div>
+          <div class="form-group  col-md-3">
+            <label for="exampleFormControlSelect1">EmitterGEIDescription</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="EmitterGEIDescription">
+              <option value="0" {% if row[8] == 0 %} selected {% endif %}>Gasóleo A</option>
+              <option value="1" {% if row[8] == 1 %} selected {% endif %}>Gasóleo A o B </option>
+              <option value="2" {% if row[8] == 2 %} selected {% endif %}>Gasolina</option>
+              <option value="3" {% if row[8] == 3 %} selected {% endif %}>Electricidad</option>
+              <option value="4" {% if row[8] == 4 %} selected {% endif %}>GLP</option>
+              <option value="5" {% if row[8] == 5 %} selected {% endif %}>Gasóleo B</option>
+              <option value="6" {% if row[8] == 6 %} selected {% endif %}>Residuos</option>
+              <option value="7" {% if row[8] == 7 %} selected {% endif %}>Gas natural</option>
+              <option value="8" {% if row[8] == 8 %} selected {% endif %}>Diesel</option>
+              <option value="9" {% if row[8] == 9 %} selected {% endif %}>Gasoil</option>
+              <option value="10" {% if row[8] == 10 %} selected {% endif %}>Combustible aviación</option>
+              <option value="11" {% if row[8] == 11 %} selected {% endif %}>Gas propano</option>
+              <option value="12" {% if row[8] == 12 %} selected {% endif %}>Emisiones manual</option>
+              <option value="13" {% if row[8] == 13 %} selected {% endif %}>Combustible</option>
+              <option value="14" {% if row[8] == 14 %} selected {% endif %}>Materias primas</option>
+              <option value="15" {% if row[8] == 15 %} selected {% endif %}>R-410A</option>
+              <option value="16" {% if row[8] == 16 %} selected {% endif %}>Gasóleo C</option>
+              <option value="17" {% if row[8] == 17 %} selected {% endif %}>R-407C</option>
+              <option value="18" {% if row[8] == 18 %} selected {% endif %}>HFC-134a</option>
+              <option value="19" {% if row[8] == 19 %} selected {% endif %}>Depuración aguas</option>
+            </select>
+          </div>
+          <div class="form-group  col-md-3">
+            <label for="exampleFormControlSelect1">VendorName</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="VendorName">
+              <option value="0" {% if row[9] == 0 %} selected {% endif %}>Solred</option>
+              <option value="1" {% if row[9] == 1 %} selected {% endif %}>ENÉRGYA VM GESTIÓN DE ENERGÍA. S.L.U.</option>
+              <option value="2" {% if row[9] == 2 %} selected {% endif %}>Endesa Energía S.A</option>
+              <option value="3" {% if row[9] == 3 %} selected {% endif %}>Iberdrola Clientes S.A.U</option>
+              <option value="4" {% if row[9] == 4 %} selected {% endif %}>EDP Comercial Comercialização de Energia. S.A</option>
+              <option value="5" {% if row[9] == 5 %} selected {% endif %}>Genérico viajes</option>
+              <option value="6" {% if row[9] == 6 %} selected {% endif %}>Aura Energía. S.L.</option>
+              <option value="7" {% if row[9] == 7 %} selected {% endif %}>Athlon</option>
+              <option value="8" {% if row[9] == 8 %} selected {% endif %}>Axpo Iberia S.L</option>
+            </select>
+          </div>
+          <div class="form-group  col-md-3">
+            <label for="exampleFormControlSelect1">ScopeDescription</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="ScopeDescription">
+              <option value="0" {% if row[10] == 0 %} selected {% endif %}>Alcance 1</option>
+              <option value="1" {% if row[10] == 1 %} selected {% endif %}>Alcance 2</option>
+              <option value="2" {% if row[10] == 2 %} selected {% endif %}>Alcance 3</option>
+              <option value="3" {% if row[10] == 3 %} selected {% endif %}>Sin Alcance</option>
+              <option value="4" {% if row[10] == 4 %} selected {% endif %}>Biogénico</option>
+            </select>
+          </div>
+          <div class="form-group  col-md-3">
+            <label for="exampleFormControlSelect1">BiogenicEmission</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="BiogenicEmission">
+              <option value='1' {% if row[11] == 1 %} selected {% endif %}>True</option>
+              <option value='0' {% if row[11] == 0 %} selected {% endif %}>False</option>
+            </select>
+          </div>
+          <div class="form-group  col-md-3">
+            <label for="exampleFormControlSelect1">Year</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="Year">
+              <option {% if row[12] == 2022 %} selected {% endif %}>2022 </option>
+              <option {% if row[12] == 2023 %} selected {% endif %}>2023</option>
+              <option {% if row[12] == 2024 %} selected {% endif %}>2024</option>
+            </select>
+          </div>
+          <div class="form-group  col-md-3">
+            <label for="exampleFormControlSelect1">Month</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="Month">
+              <option {% if row[13] == 1 %} selected {% endif %}>1</option>
+              <option {% if row[13] == 2 %} selected {% endif %}>2</option>
+              <option {% if row[13] == 3 %} selected {% endif %}>3</option>
+              <option {% if row[13] == 4 %} selected {% endif %}>4</option>
+              <option {% if row[13] == 5 %} selected {% endif %}>5</option>
+              <option {% if row[13] == 6 %} selected {% endif %}>6</option>
+              <option {% if row[13] == 7 %} selected {% endif %}>7</option>
+              <option {% if row[13] == 8 %} selected {% endif %}>8</option>
+              <option {% if row[13] == 9 %} selected {% endif %}>9</option>
+              <option {% if row[13] == 10 %} selected {% endif %}>10</option>
+              <option {% if row[13] == 11 %} selected {% endif %}>11</option>
+              <option {% if row[13] == 12 %} selected {% endif %}>12</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-3">
+            <label for="inputZip">Overall Last Month Emission</label>
+            <input type="text" class="form-control" name="sum_lag_1" value="{{request.form['sum_lag_1']}}">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputZip">Overall 2 month ago Emission</label>
+            <input type="text" class="form-control" name="sum_lag_2" value="{{request.form['sum_lag_2']}}">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputZip">Overall 4 month ago emmission</label>
+            <input type="text" class="form-control" name="sum_lag_4" value="{{request.form['sum_lag_4']}}">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputZip">Overall 6 month ago Emission</label>
+            <input type="text" class="form-control" name="sum_lag_6" value="{{request.form['sum_lag_6']}}">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputZip">Average Last Month Emission</label>
+            <input type="text" class="form-control" name="mean_lag_1" value="{{request.form['mean_lag_1']}}">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputZip">Average 2 month ago Emission</label>
+            <input type="text" class="form-control" name="mean_lag_2" value="{{request.form['mean_lag_2']}}">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputZip">Average 4 month ago Emission</label>
+            <input type="text" class="form-control" name="mean_lag_4" value="{{request.form['mean_lag_4']}}">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputZip">Average 6 mongh ago Emission</label>
+            <input type="text" class="form-control" name="mean_lag_6" value="{{request.form['mean_lag_6']}}">
+          </div>
+
+          </div>
+          <button type="submit" class="btn btn-primary">Predict C02 Emission</button>
+      </form>
+      <br>
+      <br>
+      <h3 >The predicted value is {{ prediction }}</h3>
+      </div>
+</div>
+{% endblock content %}
