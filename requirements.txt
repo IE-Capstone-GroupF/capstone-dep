@@ -2,3 +2,4 @@ Flask
 gunicorn
 sklearn
 pickle-mixin
+git-lfs
