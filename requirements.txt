@@ -1,4 +1,4 @@
 Flask
 gunicorn
-scikit_learn
+sklearn
 pickle
