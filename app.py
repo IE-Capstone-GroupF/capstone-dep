@@ -13,7 +13,10 @@ def index():
         'GEIDescription','EmitterGEIDescription','VendorName','ScopeDescription','BiogenicEmission',
          'Year','Month','sum_lag_1', 'sum_lag_2','sum_lag_4','sum_lag_6', 'mean_lag_1','mean_lag_2', 'mean_lag_4','mean_lag_6'])
         for column in columns_list:
-             row.append(int(request.form[column]))
+             if column in ['sum_lag_1', 'sum_lag_2','sum_lag_4','sum_lag_6', 'mean_lag_1','mean_lag_2', 'mean_lag_4','mean_lag_6']:
+                row.append(float(request.form[column]))
+             else:
+                row.append(int(request.form[column]))
         print(row)
         pickled_model = pickle.load(open('model2.pkl', 'rb'))
         prediction = pickled_model.predict([row])
